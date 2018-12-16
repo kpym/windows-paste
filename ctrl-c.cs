@@ -3,7 +3,6 @@
 using System;
 using System.Text;
 using System.Windows.Forms;
-using System.Threading;
 
 namespace Huddled {
    public class Clip {

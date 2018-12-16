@@ -2,7 +2,6 @@
 // http://web.archive.org/web/20131124234800/http://huddledmasses.org/clipexe-and-the-missing-pasteexe
 using System;
 using System.Windows.Forms;
-using System.Threading;
 
 namespace Huddled {
    public class Paste {
