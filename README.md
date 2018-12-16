@@ -22,12 +22,6 @@ If you use PowerShell this program will be probably useless for you as there are
 
 If you need to use `cmd`, `GitBash` or some other shell, than it can be useful to have them.
 
-# `ctrl-x` vs `clip`
-
-The main difference is when the pasted text is single line :
-- `clip` adds (or keeps) the `\n` to the end of the text
-- `ctrl-x` removes (do not adds) the `\n` from the end of the text
-
 # `ctrl-v` vs Joel 'Jaykul' Bennett's `paste`
 
 - `paste` read and write lines, so there is always `\n` at the end of the text, and all the line endings are Windows standardized

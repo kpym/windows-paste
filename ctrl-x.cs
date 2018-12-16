@@ -1,7 +1,7 @@
 // Inspired by Joel 'Jaykul' Bennett's original code from
 // http://web.archive.org/web/20131124234800/http://huddledmasses.org/clipexe-and-the-missing-pasteexe
 using System;
-using System.Text;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Huddled {
@@ -9,19 +9,14 @@ namespace Huddled {
       [STAThread]
       static void Main( string[] args )
       {
-         string s; // the temps string
-         uint nLines = 0; // the number of lines
-         StringBuilder output = new StringBuilder( string.Join(" ", args) );
+         string s = string.Join(" ", args);
          if (Console.IsInputRedirected) {
-            while ((s = Console.ReadLine()) != null) {
-               output.AppendLine( s );
-               nLines++;
+            using (StreamReader reader = new StreamReader(Console.OpenStandardInput(), Console.InputEncoding))
+            {
+               s += reader.ReadToEnd();
             }
          }
-         s = output.ToString();
-         if ( nLines == 1 ) // if single line, remove \n\r
-            s = s.TrimEnd( '\r', '\n' );
-         if( s != "" ) // copy to clipboard or clear ?
+         if( s != "" )
             Clipboard.SetText( s );
          else
             Clipboard.Clear();
